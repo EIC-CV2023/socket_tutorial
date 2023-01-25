@@ -14,7 +14,7 @@ def main():
     server.startServer()
 
     while True:
-        # Wait for connection from client
+        # Wait for connection from client :}
         conn, addr = server.sock.accept()
         print("Client connected from", addr)
 
