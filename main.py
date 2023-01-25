@@ -22,6 +22,7 @@ def main():
         while True:
             res = dict()
             try:
+                # Frame shape must be the same with client
                 data = server.recvMsg(conn)
                 img = np.frombuffer(data, dtype=np.uint8).reshape(720, 1280, 3)
 
