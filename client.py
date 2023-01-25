@@ -3,8 +3,8 @@ import cv2
 from custom_socket import CustomSocket
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 host = socket.gethostname()
 port = 10011
@@ -16,6 +16,9 @@ while cap.isOpened():
     if not ret:
         print("Can't read frame.")
         continue
+
+    print(frame.shape)
+    frame = cv2.resize(frame, (1280, 720))
 
     # print("Send")
     msg = c.req(frame)
